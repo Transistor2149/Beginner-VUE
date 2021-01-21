@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var VM = new Vue({
+					el:"#app",
+					data:{
+						message:"ZCX",
+						// v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定,
+						// 根据表单上的值，自动更新绑定的元素的值。
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{message}}</p>
+			<input v-model="message"/>
+		</div>
+	</body>
+</html>

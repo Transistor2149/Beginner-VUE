@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>名字：{{ name }}</h1>
+			<h1>链接：{{ url }}</h1>
+			<h1>Alexa的值：{{ alexa }}</h1>
+		</div>
+		<div id="app_2">
+			<span v-bind:title="message"><!-- v-bind将title属性绑定给VUE的对象实例message -->
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+		</div>
+		<div id="app3">
+			<div v-html="message"></div><!-- 用v-html输出html代码 -->
+			<p v-if="see">如果v-if中see值为false，则此段文字消失</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// window.onload = (function(){
+			var datas = {
+				name:"ZCX",
+				url:"www.runoob.com",
+				alexa: 337845818,
+			}
+			var MyVue = new Vue({
+				el:"#app",
+				data:datas,
+			 })
+			 
+			 console.log(MyVue.name == datas.name);
+			 // console.log("<br>");
+			 MyVue.name = "Runoob";
+			 console.log(datas.name + "<br>");
+			 document.write(MyVue.name === datas.name);
+			 document.write("<br>");
+			 document.write(MyVue.name + "<br>");
+			 document.write(MyVue.$data === datas);
+			 document.write("<br>");
+			 
+			 MyVue.alexa = 77490106;//修改实例数据
+			 document.write(datas.alexa);
+
+
+			var app2 = new Vue({
+				el:"#app_2",
+				data:{
+					message:"页面加载于" + new Date().toLocaleString()//此处不能有分号；
+				}
+			})
+			
+			var app3 = new Vue({
+				el:"#app3",
+				data:{
+					message:"<p>用v-html输出html代码（此处绑定了id为app3的div）/p>",
+					see:true,
+				}
+			})
+		// });
+	</script>
+</html>

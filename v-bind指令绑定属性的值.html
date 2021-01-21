@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var VM = new Vue({
+					el:"#app",
+					data:{
+						use:false,
+						use1:false,
+
+					},
+				})
+				new Vue({
+					el:"#app2",
+					data:{
+						url:"https://www.baidu.com/",
+						url1:"https://www.runoob.com/vue2/vue-template-syntax.html"						
+					}
+				})
+			});
+		</script>
+		<style type="text/css">
+			.class1{
+				background-color: aqua;
+				color: coral;
+			}
+			.class2{
+				background-color: darkviolet;
+				color: bisque;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<label for="MC">修改颜色1 <input type="checkbox" name="modify_color" id="MC" v-model="use"/><br></label>
+			<label for="MC2">修改颜色2 <input type="checkbox" name="modify_color" id="MC2" v-model="use1"/><br></label>
+			<div v-bind:class="{'class1':use,'class2':use1}"><!-- 此处将class作为参数传给v-bind -->
+				v-bind要结合v-model一起使用
+			</div>
+		</div>
+		
+		<div id="app2">
+			<p><a v-bind:href="url">v-bind指令用来响应的更新HTML属性</a></p>
+			<p>参数在指令后用冒号指定</p>
+			<p><a v-bind:href="url1">在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url1 的值绑定。</a></p>
+		</div>
+	</body>
+</html>

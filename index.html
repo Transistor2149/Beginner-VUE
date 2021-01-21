@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var apps = new Vue({
+				el:'#app',
+				data:{
+					name:'zcx',
+					a:8453
+				}
+			});
+			console.log(apps.a)
+		});	
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="name" placeholder="你的名字" />
+			<!-- v-model指令，其值对应于我们创建Vue实例中的data选项中的name字段，这就是Vue的数据绑定 -->
+			<h1>你好，{{ name }}</h1>
+		</div>
+		
+	</body>
+</html>

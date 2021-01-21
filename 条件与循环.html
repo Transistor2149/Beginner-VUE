@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var VM = new Vue({
+				el:"#app",
+				data:{
+					message:[
+						{test:"学习JS"},
+						{test:"学习Vue"},
+						{test:"此处的test是数组元素"},
+					]
+				}
+			})
+			VM.message.push({test:"push添加数组元素时必须指定数组名称message，而不是for-in里创建的存储数组的变量名称msg"});
+			VM.message.push({test:"且据点表示法头部调用的是存储了构造函数Vue的变量VM，因为Vue里保存了数组message"});
+		});
+		</script>
+	</head>
+	<body>
+		<div id="app"><!-- v-绑定的数据不能和指定的id放在同一个<>组件里面 -->
+			<ol>
+				<li v-for="msg in message">{{msg.test}}</li><!-- 并且此处的for-in迭代数组不能用var创建变量 -->
+			</ol>
+		</div>
+	</body>
+</html>

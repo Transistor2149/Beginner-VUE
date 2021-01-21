@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.5.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var app = new Vue({
+				el:'#app',
+				data:{
+					book:'《Vue.js实战》'
+				},
+			})
+		})
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			{{book}}
+		</div>
+	</body>
+</html>
